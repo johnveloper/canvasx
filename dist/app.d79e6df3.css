@@ -215,6 +215,11 @@ template {
   border-right: 4px solid #FFFFFF;
 }
 
+.Content {
+  margin-left: 160px;
+  padding: 0 32px;
+}
+
 body {
   background: #111111;
   color: #FFFFFF;
