@@ -16,10 +16,9 @@
 			</header>
 			<main class="App">
 				<nav class="Sidebar">
-					<a href="#" class="Sidebar-item Sidebar-item--active">Home</a>
-					<a href="#" class="Sidebar-item">Item 2</a>
+					<sidebar-item v-for="item in content" :key="item.path" :item="item" :active="active" @click="handleSidebarItemTap(item.path)"></sidebar-item>
 				</nav>
-				<article class="Content"></article>
+				<article v-html="contentHTML" class="Content"></article>
 			</main>
     </div>
     
