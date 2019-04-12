@@ -30,6 +30,11 @@ pre {
 
 a {
   background-color: transparent;
+  color: #3391ff;
+}
+
+a:visited {
+  color: #0055b8;
 }
 
 abbr[title] {
