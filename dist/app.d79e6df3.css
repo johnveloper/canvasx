@@ -180,13 +180,13 @@ template {
 }
 
 .Wrapper {
-  max-width: 1064px;
-  padding: 32px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .Header-logo {
   font-weight: 200;
+  margin-left: 24px;
 }
 
 .App {
