@@ -32,7 +32,12 @@ let app = new Vue({
 	},
 	methods: {
 		load(path) {
-			axios.get(`content/${path}.html`).then(res => this.contentHTML = res.data);
+			axios.get(`content/${path}.html`).then(res => {
+				this.contentHTML = res.data;
+				this.$nextTick(function() {
+					Prism.highlightAll();
+				});
+			});
 		},
 		handleSidebarItemTap(item) {
 			this.active = item;
