@@ -40,8 +40,11 @@ let app = new Vue({
 			});
 		},
 		handleSidebarItemTap(item) {
-			this.active = item;
-			this.load(item);
+			if (this.active != item) {
+				this.active = item;
+				this.contentHTML = '<h1>Loading...</h1>';
+				this.load(item);				
+			}
 		}		
 	}
 });
