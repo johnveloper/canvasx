@@ -13,6 +13,8 @@ Vue.component('sidebar-item', {
 	`
 });
 
+
+
 let app = new Vue({
 	el: '#app',
 	data: {
