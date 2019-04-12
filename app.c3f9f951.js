@@ -14126,7 +14126,11 @@ var app = new _vue.default({
       var _this2 = this;
 
       _axios.default.get("content/".concat(path, ".html")).then(function (res) {
-        return _this2.contentHTML = res.data;
+        _this2.contentHTML = res.data;
+
+        _this2.$nextTick(function () {
+          Prism.highlightAll();
+        });
       });
     },
     handleSidebarItemTap: function handleSidebarItemTap(item) {
