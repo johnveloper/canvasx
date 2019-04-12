@@ -13632,11 +13632,6 @@ var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var content = [{
-  path: 'intro',
-  name: 'Introduction'
-}];
-
 _vue.default.component('sidebar-item', {
   props: ['item', 'active'],
   template: "\n\t\t<a href=\"#\" class=\"Sidebar-item\"\n\t\t\t:class=\"{ 'Sidebar-item--active': item.path == active }\"\n\t\t\t@click=\"$emit('click')\"\n\t\t>{{ item.name }}</a>\n\t"
@@ -13645,19 +13640,26 @@ _vue.default.component('sidebar-item', {
 var app = new _vue.default({
   el: '#app',
   data: {
-    content: content,
-    active: 'intro',
+    content: null,
+    active: null,
     contentHTML: '<h1>Loading...</h1>'
   },
   mounted: function mounted() {
-    this.load("".concat(this.active));
+    var _this = this;
+
+    _axios.default.get('content/content.json').then(function (res) {
+      _this.content = res.data.content;
+      _this.active = res.data.initial;
+
+      _this.load(_this.active);
+    });
   },
   methods: {
     load: function load(path) {
-      var _this = this;
+      var _this2 = this;
 
       _axios.default.get("content/".concat(path, ".html")).then(function (res) {
-        return _this.contentHTML = res.data;
+        return _this2.contentHTML = res.data;
       });
     },
     handleSidebarItemTap: function handleSidebarItemTap(item) {
