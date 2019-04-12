@@ -334,6 +334,7 @@ pre[class*=language-] {
 }
 .Sidebar-item:hover {
   background: #222222;
+  cursor: default;
 }
 .Sidebar-item:active, .Sidebar-item--active {
   background: #222222;
@@ -348,6 +349,7 @@ pre[class*=language-] {
 body {
   background: #111111;
   color: #FFFFFF;
+  overflow-y: scroll;
 }
 
 /*# sourceMappingURL=/app.d79e6df3.css.map */
