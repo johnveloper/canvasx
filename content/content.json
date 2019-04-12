@@ -1,6 +1,6 @@
 {
-	"initial": "intro",
+	"initial": "resources",
 	"content": [
-		{ "path": "intro", "name": "Introduction" }
+		{ "path": "resources", "name": "Resources" }
 	]
 }
