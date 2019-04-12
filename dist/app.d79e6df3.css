@@ -342,7 +342,7 @@ pre[class*=language-] {
 
 .Content {
   margin-left: 160px;
-  padding: 0 32px;
+  padding: 0 32px 64px 32px;
 }
 
 body {
