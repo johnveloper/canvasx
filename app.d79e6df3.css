@@ -185,6 +185,31 @@ template {
   margin: 0 auto;
 }
 
+.App {
+  position: relative;
+  display: flex;
+}
+
+.Sidebar {
+  width: 160px;
+  border-right: 1px solid #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+}
+.Sidebar-item {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 8px;
+}
+.Sidebar-item:hover {
+  background: #222222;
+}
+.Sidebar-item:active, .Sidebar-item--active {
+  border-right: 4px solid #FFFFFF;
+}
+
 body {
   background: #111111;
   color: #FFFFFF;
