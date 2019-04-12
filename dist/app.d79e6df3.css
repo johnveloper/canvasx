@@ -185,6 +185,10 @@ template {
   margin: 0 auto;
 }
 
+.Header-logo {
+  font-weight: 200;
+}
+
 .App {
   position: relative;
   display: flex;
@@ -207,6 +211,7 @@ template {
   background: #222222;
 }
 .Sidebar-item:active, .Sidebar-item--active {
+  background: #222222;
   border-right: 4px solid #FFFFFF;
 }
 
