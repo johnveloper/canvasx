@@ -1,6 +1,7 @@
 {
-	"initial": "resources",
+	"initial": "minimal-setup",
 	"content": [
-		{ "path": "resources", "name": "Resources" }
+		{ "path": "resources", "name": "Resources" },
+		{ "path": "minimal-setup", "name": "Minimal Setup" }
 	]
 }

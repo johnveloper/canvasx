@@ -1,0 +1,69 @@
+<h1>Minimal Setup</h1>
+<p>Minimal setup (without module bundlers/build tools):</p>
+<ul>
+	<li><p>Fullscreen, responsive (resizable) canvas</p></li>
+	<li><p>Tracking canvas height and width</p></li>
+	<li><p>Tracking mouse position</p></li>
+	<li><p>Basic loop setup</p></li>
+</ul>
+<p>Create a directory and place three files in it, like below.</p>
+
+<h2><code>index.html</code></h2>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;&#13;&#10;&lt;html lang=&quot;en&quot;&gt;&#13;&#10;&#13;&#10;&#9;&lt;head&gt;&#13;&#10;&#9;&#9;&lt;meta charset=&quot;UTF-8&quot;&gt;&#13;&#10;&#9;&#9;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#13;&#10;&#9;&#9;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;&#13;&#10;&#9;&#9;&lt;title&gt;CanvasX&lt;/title&gt;&#13;&#10;&#9;&#9;&lt;link rel=&quot;stylesheet&quot; href=&quot;index.css&quot;&gt;&#13;&#10;&#9;&lt;/head&gt;&#13;&#10;&#9;&#13;&#10;&#9;&lt;body&gt;&#13;&#10;&#9;&#9;&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;&#13;&#10;&#9;&#9;&lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;&#13;&#10;&#9;&lt;/body&gt;&#13;&#10;&#9;&#13;&#10;&lt;/html&gt;</code></pre>
+
+<h2><code>index.css</code></h2>
+<pre><code class="lang-css">html, body {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	transform: translateZ(0);
+}</code></pre>
+
+<h2><code>index.js</code></h2>
+<p>For maximum browser compatibility, I will use ES5 here.</p>
+<p>If you want to use ES6 features (highly recommended - modules, classes and more), see next section when I'm showing you how to setup a simple module bundler.</p>
+<pre><code>var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var width, height; handleResize();
+
+function handleResize() {
+	canvas.width = width = document.body.clientWidth;
+	canvas.height = height = document.body.clientHeight;
+}
+
+var mouse = {
+	down: false,
+	x: undefined,
+	y: undefined
+}
+
+function handleMouseMove() {
+	mouse.x = e.clientX;
+	mouse.y = e.clientY;	
+}
+
+function handleMouseDown() {
+	mouse.down = true;
+}
+
+function handleMouseUp() {
+	mouse.down = false;
+}
+
+function tick() {
+	requestAnimationFrame(tick);
+	
+	// draw background - 100% tall and wide rectangle, every frame
+	// if left mouse button is down, the background will be red and otherwise green
+	context.fillStyle = mouse.down ? 'red' : 'green';
+	context.fillRect(0, 0, width, height);
+}
+
+window.addEventListener('mousedown', handleMouseDown);
+window.addEventListener('mouseup', handleMouseUp);
+window.addEventListener('mousemove', handleMouseMove);
+window.addEventListener('resize', handleResize);
+
+tick();</code></pre>
