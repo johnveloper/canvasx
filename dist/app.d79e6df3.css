@@ -207,6 +207,9 @@ template {
   position: absolute;
   top: 0;
 }
+.Sidebar-item, .Sidebar-item:visited {
+  color: #FFFFFF;
+}
 .Sidebar-item {
   color: #FFFFFF;
   text-decoration: none;
