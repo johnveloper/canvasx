@@ -3,12 +3,6 @@ import axios from 'axios';
 
 
 
-let content = [
-	{ path: 'intro', name: 'Introduction' },
-];
-
-
-
 Vue.component('sidebar-item', {
 	props: ['item', 'active'],
 	template: `
@@ -22,12 +16,16 @@ Vue.component('sidebar-item', {
 let app = new Vue({
 	el: '#app',
 	data: {
-		content,
-		active: 'intro',
+		content: null,
+		active:  null,
 		contentHTML: '<h1>Loading...</h1>',
 	},
 	mounted() {
-		this.load(`${this.active}`);
+		axios.get('content/content.json').then(res => {
+			this.content = res.data.content;
+			this.active = res.data.initial;
+			this.load(this.active);
+		});
 	},
 	methods: {
 		load(path) {
